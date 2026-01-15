@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Tietäjät tietää</title>
+
+</head>
+
+<!-- https://sovellusprojektit.it.jyu.fi/kuovi/lahdekoodi/korppi/course/student/courseInfo.jsp -->
+
+<style>
+#Painettu {
+  border: 4px solid black;
+  padding-left: 0.5%;
+  margin: 1%;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+}
+
+#viesti {
+padding: 1%;
+}
+
+
+</style>
+<div class="center">
+    <input type="button" value="Paina tästä jos siltä tuntuu" onclick="Paina();"><br/>
+
+    <div id="Painettu" style="display:none;">
+        <p>Tiedotus:</p>
+        <b><p id="viesti">Kiitos, toivottavasti painallus rauhoitti. Parempaa päivänjatkoa! <span style="color: red;">:)</span></p></b>
+    </div>
+
+</div>
+
+<script>
+
+function Paina()
+ {
+    var x = document.getElementById("Painettu");
+    x.style.display = "block";
+    const d = new Date();
+    let hour = d.getHours();
+    var aika = "päivän";
+    if ( 5 <= hour && hour < 10 ) aika = "aamun";
+    if ( 10 <= hour && hour < 18 ) aika = "päivän";
+    if ( 18 <= hour && hour < 24 ) aika = "illan";
+    if ( 0 <= hour && hour < 5 ) aika = "yön";
+    document.getElementById('viesti').innerHTML = "Kiitos, toivottavasti painallus rauhoitti. Parempaa "+aika+"jatkoa! <span style=\"color: red;\">:)</span>";
+ }
+
+</script>
+</body>
+</html>
